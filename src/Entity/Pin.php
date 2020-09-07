@@ -6,7 +6,8 @@ use App\Repository\PinRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PinRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\PinRepository")
+ * @ORM\Table(name="pins")
  */
 class Pin
 {
@@ -44,12 +45,12 @@ class Pin
         return $this;
     }
 
-    public function getDecription(): ?string
+    public function getDescription(): ?string
     {
         return $this->decription;
     }
 
-    public function setDecription(string $decription): self
+    public function setDescription(string $decription): self
     {
         $this->decription = $decription;
 

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>Welcome!</title>
     </head>
     <body>
-        {% block body %}
         <h1>Pins</h1>
-        {% endblock %}
+
+        {% for pin in pins %}
+            <article>
+                <h1>{{ pin.title }}</h1> <!--pin.title == pin.getTitle() -->
+                <p>{{ pin.getDescription() }}</p>
+            </article>
+        {% endfor %}
+       
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
