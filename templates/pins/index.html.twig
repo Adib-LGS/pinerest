@@ -5,11 +5,13 @@
         <title>Welcome!</title>
     </head>
     <body>
-        <h1>Pins</h1>
+        <h1>All Pins</h1>
+
+        <a href="{{ path('pins.create') }}">Create Pin</a>
 
         {% for pin in pins %}
             <article>
-                <h1>{{ pin.title }}</h1> <!--pin.title == pin.getTitle() -->
+                <h1>{{ pin.title }}</h1> {#pin.title == pin.getTitle()#}
                 <p>{{ pin.getDescription() }}</p>
             </article>
         {% endfor %}
