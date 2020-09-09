@@ -30,7 +30,7 @@ class PinsController extends AbstractController
     public function show(Pin $pin): Response
     {
         /*Manual way
-        
+
         public function show(PinRepository $repo, int $id)
         $pin = $repo->find($id);
         //dd($pin);
@@ -61,7 +61,7 @@ class PinsController extends AbstractController
             $em->persist($pin);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('pins.show', ['id' => $pin->getId() ]);
         }
         //dd($form);
         return $this->render('pins/create.html.twig', ['form' => $form->createView()]);

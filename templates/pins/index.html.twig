@@ -12,7 +12,7 @@
     {% if pins|length > 0 %}
         {% for pin in pins %}
             <article>
-                <h1>{{ pin.title }}</h1> {#pin.title == pin.getTitle()#}
+                <h1><a href="{{ path('pins.show', {'id' : pin.id }) }}">{{ pin.title }}</a></h1> {#pin.title == pin.getTitle()#}
                 <p>{{ pin.getDescription() }}</p>
             </article>
         {% endfor %}
