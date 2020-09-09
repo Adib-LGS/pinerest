@@ -9,13 +9,19 @@
 
         <a href="{{ path('pins.create') }}">Create Pin</a>
 
+    {% if pins|length > 0 %}
         {% for pin in pins %}
             <article>
                 <h1>{{ pin.title }}</h1> {#pin.title == pin.getTitle()#}
                 <p>{{ pin.getDescription() }}</p>
             </article>
         {% endfor %}
-       
+
+    {% else %}
+
+        <p>Sorry, there's no pins yet !</p>
+
+    {% endif %} 
 
         {% block javascripts %}{% endblock %}
     </body>

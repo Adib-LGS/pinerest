@@ -6,7 +6,6 @@ use App\Repository\PinRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +22,24 @@ class PinsController extends AbstractController
         //dd($repo->findAll());
         //$pins = $repo->findAll();
         return $this->render('pins/index.html.twig', ['pins' => $repo->findAll()]);
+    }
+
+    /**
+     * @Route("/pins/{id<[0-9]+>}", name="pins.show", methods={"GET"})
+     */
+    public function show(Pin $pin): Response
+    {
+        /*Manual way
+        
+        public function show(PinRepository $repo, int $id)
+        $pin = $repo->find($id);
+        //dd($pin);
+
+        if(! $pin){
+            throw $this->createNotFoundException('Pin #' . $id . ' Not Found :(');
+        }*/
+
+        return $this->render('pins/show.html.twig', compact('pin'));
     }
 
     /**
